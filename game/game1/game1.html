@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đuổi Hình Bắt Chữ – Meme Việt</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .meme-img {
+      max-height: 300px;
+      object-fit: contain;
+    }
+    .answer-btn {
+      min-height: 60px;
+      font-size: 1.2rem;
+    }
+    #result {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    #timer {
+      font-size: 1.25rem;
+      color: #dc3545;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="text-center mb-4">
+      <h1>Đuổi Hình Bắt Chữ – Bản Meme Việt</h1>
+    </div>
+
+    <div class="text-center mb-4">
+      <img id="memeImage" src="" alt="Meme" class="meme-img img-fluid rounded border">
+    </div>
+
+    <div class="row g-3 mb-4" id="answers">
+      <!-- Đáp án được chèn bằng JS -->
+    </div>
+
+    <div class="text-center mb-3">
+      <div id="timer">Thời gian: 10s</div>
+    </div>
+
+    <div class="text-center">
+      <div id="result"></div>
+      <div id="explanation" class="mt-2"></div>
+    </div>
+  </div>
+
+  <script>
+    const memes = [
+  {
+    "image": "https://i.imgur.com/VnTXYCl.jpg",
+    "correct": "Bật khóc trong lòng nhưng ngoài mặt vẫn tươi cười",
+    "options": [
+      "Con cưng của hệ thống giáo dục",
+      "Bật khóc trong lòng nhưng ngoài mặt vẫn tươi cười",
+      "Không vào được server",
+      "Trứng rán cần mỡ"
+    ],
+    "explanation": "Meme thể hiện trạng thái buồn nhưng phải tỏ ra ổn ở bên ngoài."
+  },
+  {
+    "image": "https://i.imgur.com/G1XZKc0.jpg",
+    "correct": "Con cưng của hệ thống giáo dục",
+    "options": [
+      "Tôi là ai và đây là đâu",
+      "Con cưng của hệ thống giáo dục",
+      "Hôm nay tôi buồn",
+      "Khum"
+    ],
+    "explanation": "Chỉ học sinh luôn được ưu ái, điểm cao, đại diện lớp..."
+  },
+  {
+    "image": "https://i.imgur.com/YZtIoyw.jpg",
+    "correct": "Khum",
+    "options": [
+      "Khum",
+      "Không vào được server",
+      "Bật khóc trong lòng",
+      "Trứng rán cần mỡ"
+    ],
+    "explanation": "Cách nói lái hài hước của từ 'Không', xuất hiện trong các video hài."
+  },
+  {
+    "image": "https://i.imgur.com/R3GsUbV.jpg",
+    "correct": "Trứng rán cần mỡ, bắp cần bơ",
+    "options": [
+      "Trứng rán cần mỡ, bắp cần bơ",
+      "Không có gì để mặc",
+      "Nhìn vậy thôi chứ yếu đuối lắm",
+      "Dỗi rồi đó!"
+    ],
+    "explanation": "Trend tỏ tình dễ thương từng gây bão trên mạng xã hội."
+  },
+  {
+    "image": "https://i.imgur.com/U3hRvTk.jpg",
+    "correct": "Anh đứng đây từ chiều",
+    "options": [
+      "Chị ong nâu",
+      "Anh đứng đây từ chiều",
+      "Con cưng hệ thống",
+      "Khum"
+    ],
+    "explanation": "Meme từ MV nhạc Việt, thường được dùng khi chờ đợi mỏi mòn."
+  }
+];
+
+    let current = 0;
+    let score = 0;
+    let countdown;
+    let timeLeft = 10;
+
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    function startTimer() {
+      timeLeft = 10;
+      document.getElementById("timer").textContent = `Thời gian: ${timeLeft}s`;
+      countdown = setInterval(() => {
+        timeLeft--;
+        document.getElementById("timer").textContent = `Thời gian: ${timeLeft}s`;
+        if (timeLeft === 0) {
+          clearInterval(countdown);
+          showResult(false);
+        }
+      }, 1000);
+    }
+
+    function loadMeme() {
+      clearInterval(countdown);
+      const meme = memes[current];
+      document.getElementById("memeImage").src = meme.image;
+
+      const shuffledOptions = shuffle([...meme.options]);
+      const answersDiv = document.getElementById("answers");
+      answersDiv.innerHTML = "";
+      shuffledOptions.forEach(option => {
+        const col = document.createElement("div");
+        col.className = "col-md-6";
+        const btn = document.createElement("button");
+        btn.className = "btn btn-outline-primary w-100 answer-btn";
+        btn.textContent = option;
+        btn.onclick = () => handleAnswer(option);
+        col.appendChild(btn);
+        answersDiv.appendChild(col);
+      });
+
+      document.getElementById("result").textContent = "";
+      document.getElementById("explanation").textContent = "";
+      startTimer();
+    }
+
+    function handleAnswer(selected) {
+      clearInterval(countdown);
+      const meme = memes[current];
+      const isCorrect = selected === meme.correct;
+      showResult(isCorrect);
+    }
+
+    function showResult(correct) {
+      const resultEl = document.getElementById("result");
+      const explanationEl = document.getElementById("explanation");
+      const meme = memes[current];
+      if (correct) {
+        resultEl.textContent = "✅ Chính xác!";
+        resultEl.classList.remove("text-danger");
+        resultEl.classList.add("text-success");
+        score++;
+        setTimeout(() => nextMeme(), 1500);
+      } else {
+        resultEl.textContent = "❌ Tạch!";
+        resultEl.classList.remove("text-success");
+        resultEl.classList.add("text-danger");
+        explanationEl.textContent = `Giải thích: ${meme.explanation}`;
+        setTimeout(() => nextMeme(), 3000);
+      }
+    }
+
+    function nextMeme() {
+      current++;
+      if (current < memes.length) {
+        loadMeme();
+      } else {
+        document.querySelector(".container").innerHTML = `
+          <div class="text-center py-5">
+            <h2>🎉 Kết thúc game!</h2>
+            <p>Điểm của bạn: <strong>${score}/${memes.length}</strong></p>
+            <button class="btn btn-primary" onclick="restartGame()">Chơi lại</button>
+          </div>
+        `;
+      }
+    }
+
+    function restartGame() {
+      current = 0;
+      score = 0;
+      location.reload();
+    }
+
+    loadMeme();
+  </script>
+</body>
+</html>

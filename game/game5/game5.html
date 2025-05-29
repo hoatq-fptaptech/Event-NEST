@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game 5: Học bài hay đi chơi?</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+    button { padding: 10px 20px; margin: 10px; cursor: pointer; }
+    .log { margin-top: 20px; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body>
+  <h1>📚 Game: Học Bài Hay Đi Chơi?</h1>
+  <p>Mỗi ngày bạn sẽ chọn một hành động. Xem kết quả sau 7 ngày!</p>
+
+  <div id="dayStatus"></div>
+  <div id="actions">
+    <button onclick="choose('học')">Học bài</button>
+    <button onclick="choose('ngủ')">Ngủ</button>
+    <button onclick="choose('lướt TikTok')">Lướt TikTok</button>
+    <button onclick="choose('chơi game')">Chơi game</button>
+  </div>
+
+  <div class="log" id="log"></div>
+  <div id="result"></div>
+
+  <script>
+    const totalDays = 7;
+    let currentDay = parseInt(localStorage.getItem('currentDay')) || 1;
+    let actions = JSON.parse(localStorage.getItem('actions')) || [];
+
+    document.getElementById('dayStatus').innerText = `Ngày ${currentDay} / ${totalDays}`;
+    updateLog();
+
+    function choose(action) {
+      if (currentDay > totalDays) return;
+
+      actions.push(action);
+      localStorage.setItem('actions', JSON.stringify(actions));
+      currentDay++;
+      localStorage.setItem('currentDay', currentDay);
+
+      if (currentDay > totalDays) {
+        showResult();
+        document.getElementById('actions').style.display = 'none';
+      } else {
+        document.getElementById('dayStatus').innerText = `Ngày ${currentDay} / ${totalDays}`;
+        updateLog();
+      }
+    }
+
+    function updateLog() {
+      const log = document.getElementById('log');
+      log.innerHTML = '<h3>Nhật ký của bạn:</h3>';
+      actions.forEach((a, i) => {
+        log.innerHTML += `Ngày ${i + 1}: ${a}<br>`;
+      });
+    }
+
+    function showResult() {
+      let study = actions.filter(a => a === 'học').length;
+      let message = '';
+
+      if (study >= 5) message = '🎓 Bạn là học bá! Học lực xuất sắc!';
+      else if (study >= 3) message = '📘 Học tạm ổn. Cần cố gắng thêm!';
+      else message = '📱 Bạn đã dành quá nhiều thời gian để giải trí. Kết quả học yếu!';
+
+      document.getElementById('result').innerHTML = `<h2>Kết quả:</h2><p>${message}</p>`;
+    }
+
+    if (currentDay > totalDays) {
+      document.getElementById('actions').style.display = 'none';
+      showResult();
+    }
+  </script>
+</body>
+</html>
