@@ -1,0 +1,47 @@
+.wheel-container {
+    width: 320px;
+    height: 320px;
+    position: relative;
+  }
+  
+  .wheel {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 5px solid #333;
+    position: relative;
+    transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+    box-shadow: 0 0 10px #666;
+    background: #fff;
+  }
+  
+  .wheel-segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 0%;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .pointer {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid #dc3545;
+    z-index: 10;
+  }
+  

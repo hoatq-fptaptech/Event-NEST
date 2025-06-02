@@ -1,0 +1,16 @@
+body {
+    background-color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  h1 {
+    color: #d63384;
+  }
+  
+  button {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+  
