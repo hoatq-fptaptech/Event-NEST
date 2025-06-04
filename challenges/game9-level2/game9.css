@@ -1,0 +1,18 @@
+.comment {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .comment.negative {
+    color: #dc3545;
+    font-weight: 600;
+  }
+  
+  .comment.positive {
+    color: #198754;
+  }
+  
+  .comment:hover {
+    background-color: #f8d7da;
+  }
+  
