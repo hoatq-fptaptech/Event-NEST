@@ -1,0 +1,18 @@
+.choice-btn {
+      width: 100px;
+      height: 100px;
+      font-size: 30px;
+      transition: transform 0.2s ease;
+    }
+    .choice-btn:active {
+      transform: scale(1.1);
+    }
+    .result {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .history-box {
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 0.95rem;
+    }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Vòng Quay May Mắn</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style2.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/zarocknz/javascript-winwheel@latest/Winwheel.min.js"></script>
+</head>
+<body>
+<div class="container py-4">
+  <h2 class="text-center mb-4">🎯 Vòng Quay May Mắn</h2>
+  <div class="row g-4">
+    <!-- Thêm phần thưởng + danh sách -->
+    <div class="col-lg-5">
+      <div class="card p-3">
+        <h5>🎁 Thêm phần thưởng</h5>
+        <div class="row g-2 mb-3">
+          <div class="col-6">
+            <input type="text" id="rewardName" class="form-control" placeholder="Tên phần thưởng">
+          </div>
+          <div class="col-4">
+            <input type="number" id="rewardQty" class="form-control" placeholder="Số lượng" min="1">
+          </div>
+          <div class="col-2">
+            <button class="btn btn-primary w-100" onclick="addReward()">Thêm</button>
+          </div>
+        </div>
+        <h6>📦 Danh sách phần thưởng:</h6>
+        <ul class="list-group" id="rewardList" style="max-height: 200px; overflow-y: auto;"></ul>
+      </div>
+    </div>
+
+    <!-- Vòng quay và danh sách người trúng -->
+    <div class="col-lg-7">
+      <div class="card p-3 mb-4">
+        <h5>🧑 Người chơi & Quay thưởng</h5>
+        <div class="row g-2 mb-3">
+          <div class="col-8">
+            <input type="text" id="playerName" class="form-control" placeholder="Nhập tên người chơi">
+          </div>
+          <div class="col-4">
+            <button class="btn btn-success w-100" onclick="spinWheel()">🎡 Quay!</button>
+          </div>
+        </div>
+        <div id="canvas-container">
+            <div class="pointer"></div>
+            <canvas id="wheelCanvas" width="500" height="500"></canvas>
+        </div>
+      </div>
+
+      <div class="card p-3">
+        <h5>📜 Danh sách người nhận thưởng</h5>
+        <ul class="list-group" id="winnerList" style="max-height: 200px; overflow-y: auto;"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="game2.js"></script>
+</body>
+</html>
