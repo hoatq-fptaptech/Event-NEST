@@ -4,20 +4,7 @@ let rewards = [];
   let winnerList = [];
 
   function addReward() {
-    const name = document.getElementById("rewardName").value.trim();
-    const qty = parseInt(document.getElementById("rewardQty").value);
-    if (!name || qty < 1) return alert("Vui lòng nhập phần thưởng hợp lệ.");
-
-    const existing = rewards.find(r => r.name === name);
-    if (existing) {
-      existing.qty += qty;
-    } else {
-      rewards.push({ name, qty });
-    }
-
-    document.getElementById("rewardName").value = "";
-    document.getElementById("rewardQty").value = "";
-    updateUI();
+    
   }
 
   function updateUI() {

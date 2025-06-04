@@ -3,15 +3,9 @@ let rewards = [];
   let theWheel;
   let winnerList = [];
 
-  function addReward() {
-    const name = document.getElementById("rewardName").value.trim();
-    const qty = parseInt(document.getElementById("rewardQty").value);
-    if (!name || qty < 1) return alert("Vui lòng nhập phần thưởng hợp lệ.");
-
-    const existing = rewards.find(r => r.name === name);
-    if (existing) {
-      existing.qty += qty;
-    } else {
+function addReward() {
+  // TODO: Viết lại logic thêm phần thưởng vào danh sách
+}
       rewards.push({ name, qty });
     }
 
