@@ -1,0 +1,27 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  #items .item-card {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-radius: 12px;
+    user-select: none;
+  }
+  
+  #items .item-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+  
+  #cart-list {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #message {
+    color: #d63384;
+    font-weight: 600;
+  }
+  
