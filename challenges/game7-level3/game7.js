@@ -119,7 +119,31 @@ const trends = [
   }
   
   function checkAnswer(idx) {
-    
+    const trend = trends[current];
+    const feedback = document.getElementById("feedback");
+    if (idx === trend.correct) {
+      score++;
+      feedback.textContent = "✅ Chính xác! +1 Trend Point";
+      feedback.style.color = "green";
+    } else {
+      feedback.textContent = "❌ Sai rồi! Đó không phải nguồn gốc trend.";
+      feedback.style.color = "red";
+    }
+  
+    document.getElementById("score").textContent = `Trend Points: ${score}`;
+    current++;
+    document.getElementById("question-count").textContent = `Câu: ${Math.min(current + 1, trends.length)}/10`;
+  
+    if (current < trends.length) {
+      setTimeout(() => {
+        feedback.textContent = "";
+        renderQuestion();
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        alert(`Bạn đạt cấp độ: ${score >= 8 ? "🎉 Master Bắt Trend 🎉" : score >= 5 ? "Bắt trend ổn áp!" : "Bạn cần cập nhật thêm đó!"}`);
+      }, 500);
+    }
   }
   
   renderQuestion();

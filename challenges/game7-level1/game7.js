@@ -4,8 +4,7 @@ const trends = [
       options: [
         "Câu nói khiêu khích trong game",
         "Câu nói hài chế từ giới boxing",
-        "Trend bắt nguồn từ màn múa võ hài hước của Lê Bống",
-        "Lời bài hát của một rapper nổi tiếng"
+        // TODO: Thêm 2 lựa chọn còn thiếu tại đây
       ],
       correct: 2
     },
@@ -14,8 +13,7 @@ const trends = [
       options: [
         "Biến thể hài hước của 'Oh my God'",
         "Thương hiệu ô mai nổi tiếng",
-        "Tên nhân vật TikTok giả tưởng",
-        "Câu thoại trong phim Hàn Quốc"
+        // TODO: Thêm 2 lựa chọn còn thiếu tại đây
       ],
       correct: 0
     },
@@ -24,8 +22,7 @@ const trends = [
       options: [
         "Đơn hàng hot trên TikTok",
         "Câu mở đầu trend hóa đơn khổng lồ",
-        "Trend về sự cầu kỳ của Gen Z",
-        "Tựa đề video mukbang nổi tiếng"
+        // TODO: Thêm 2 lựa chọn còn thiếu tại đây
       ],
       correct: 1
     },
@@ -34,8 +31,7 @@ const trends = [
       options: [
         "Bài hát sôi động dùng nhiều trên TikTok",
         "Câu cảm thán khi tiệc quá sung",
-        "Tên trò chơi mobile",
-        "Thương hiệu loa kéo nổi tiếng"
+        // TODO: Thêm 2 lựa chọn còn thiếu tại đây
       ],
       correct: 1
     },
@@ -44,8 +40,7 @@ const trends = [
       options: [
         "Câu tỏ tình trong game",
         "Trend từ clip đứng đợi người yêu",
-        "Lời bài hát thất tình",
-        "Thành ngữ cổ của người miền Tây"
+        // TODO: Thêm 2 lựa chọn còn thiếu tại đây
       ],
       correct: 1
     },
@@ -54,8 +49,7 @@ const trends = [
       options: [
         "Tiêu đề sách",
         "Trend nói về toxic relationship",
-        "Thuật ngữ học thuật",
-        "Tên nhạc phim Hàn"
+        // TODO: Thêm 2 lựa chọn còn thiếu tại đây
       ],
       correct: 1
     },
@@ -64,8 +58,7 @@ const trends = [
       options: [
         "Câu nói viral khi ai đó vô lý",
         "Câu mở đầu livestream",
-        "Trend của streamer",
-        "Câu cảm thán khi trúng thưởng"
+        // TODO: Thêm 2 lựa chọn còn thiếu tại đây
       ],
       correct: 0
     },
@@ -74,8 +67,7 @@ const trends = [
       options: [
         "Câu nói chế ngôn tình",
         "Tên nhạc remix",
-        "Câu đùa phổ biến từ TikTok Trung",
-        "Meme về chiều cao"
+        // TODO: Thêm 2 lựa chọn còn thiếu tại đây
       ],
       correct: 0
     },
@@ -84,8 +76,7 @@ const trends = [
       options: [
         "Biểu hiện tự tin của Gen Z",
         "Câu nói khi bị phản bác",
-        "Tên show truyền hình",
-        "Trend TikTok gốc Hàn"
+        // TODO: Thêm 2 lựa chọn còn thiếu tại đây
       ],
       correct: 0
     },
@@ -94,8 +85,7 @@ const trends = [
       options: [
         "Trend trong hội sinh viên",
         "Lời trong bài nhạc chế",
-        "Câu viral khi học online",
-        "Châm ngôn lập trình viên"
+        // TODO: Thêm 2 lựa chọn còn thiếu tại đây
       ],
       correct: 0
     }

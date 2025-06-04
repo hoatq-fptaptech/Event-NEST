@@ -118,8 +118,25 @@ const trends = [
     });
   }
   
-  function checkAnswer(idx) {
+  function checkAnswer(index) {
+
+  // TODO: Viết lại nội dung kiểm tra đáp án tại đây
     
+  
+    document.getElementById("score").textContent = `Trend Points: ${score}`;
+    current++;
+    document.getElementById("question-count").textContent = `Câu: ${Math.min(current + 1, trends.length)}/10`;
+  
+    if (current < trends.length) {
+      setTimeout(() => {
+        feedback.textContent = "";
+        renderQuestion();
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        alert(`Bạn đạt cấp độ: ${score >= 8 ? "🎉 Master Bắt Trend 🎉" : score >= 5 ? "Bắt trend ổn áp!" : "Bạn cần cập nhật thêm đó!"}`);
+      }, 500);
+    }
   }
   
   renderQuestion();
