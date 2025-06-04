@@ -42,11 +42,6 @@ function spawnCharacters() {
     charElem.className = 'character show';
     charElem.style.backgroundColor = character.color;
     charElem.innerHTML = `<span>${character.name}</span>`;
-    charElem.onclick = () => {
-      score += character.score;
-      scoreDisplay.textContent = score;
-      charElem.remove();
-    };
 
     hole.innerHTML = '';
     hole.appendChild(charElem);
