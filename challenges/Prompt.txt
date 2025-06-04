@@ -1,0 +1,5 @@
+Tôi đang chuẩn bị cho một sự kiện, trong sự kiện có thử thách lập trình game cho sinh viên. Tôi có một chương trình hoàn chỉnh là game3.zip, một mẫu thử thách Challenge1.pdf . Từ game3 hãy viết 3 thử thách với 3 cấp độ khác nhau.
+Level 1: Xoá đoạn code về giao diện game, viết một file hướng dẫn để sinh viên hoàn thành được đoạn code đã xoá
+Level 2: Xoá 1 phần code về Javascript, viết một file hướng dẫn để sinh viên hoàn thành được đoạn code đã xoá
+Level 3: Bổ sung thêm code khi người chơi hết thời gian cho phép người chơi điền thông tin tên vào từ giao diện, lưu tên và điểm của người chơi. Hiển thị danh sách top 10 người cao điểm nhất
+Với mỗi thử thách hãy đóng gói thành file zip trong đó có chứa code và nội dung của thử thách.
