@@ -23,3 +23,4 @@ Hoàn thiện một phần giao diện trò chơi bằng HTML.
 ## ✅ Kết quả mong muốn:
 - Giao diện hiển thị đủ 6 hố chuột.
 - Game hoạt động bình thường.
+- Thay đổi màu nền.

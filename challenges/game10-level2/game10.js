@@ -22,8 +22,7 @@ const ngayTot = ['Mùng 1', 'Mùng 6', 'Mùng 11', 'Mùng 16', '21', '26'];
 
 document.getElementById('fortuneForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const birthdate = document.getElementById('birthdate').value;
-  const gender = document.querySelector('input[name="gender"]:checked')?.value;
+ // TODO: Lấy giá trị từ các trường nhập liệu
 
   if (birthdate && gender) {
     const year = parseInt(birthdate.split('-')[0]);
@@ -58,6 +57,6 @@ document.getElementById('fortuneForm').addEventListener('submit', function(e) {
       Tình duyên cũng khởi sắc nếu bạn chủ động mở lòng và chia sẻ nhiều hơn!</p>
     `;
 
-    document.getElementById('result').innerHTML = resultHTML;
+    // TODO: Viết đoạn hiển thị kết quả vào thẻ #result tại đây
   }
 });
